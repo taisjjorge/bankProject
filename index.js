@@ -1,17 +1,19 @@
 import {Cliente} from "./Cliente.js";
-import {ContaCorrente} from "./ContaCorrente.js";
-import { ContaPoupanca } from "./ContaPoupanca.js";
+import { Gerente } from './Funcionario/Gerente.js';
+import { Diretor } from './Funcionario/Diretor.js';
+import{ SistemaAutenticacao } from './SistemaAutenticacao.js'
 
-const cliente1 = new Cliente("Tais", 11122233345);
+const diretor = new Diretor("Tais", 25000, 11122233345);
+diretor.cadastrarSenha("123456")
+const gerente = new Gerente("Gabriela", 12500, 88822233345);
+gerente.cadastrarSenha("123")
 
-const contaCorrenteTais = new ContaCorrente( cliente1, 1001);
-contaCorrenteTais.depositar(500);
-contaCorrenteTais.sacar(100);
-
-const contaPoupanca = new ContaPoupanca(50, cliente1, 1001);
-contaPoupanca.sacar(10);
+// sistema de autenticacao com método login estático
+const cliente = new Cliente("Debora", 11133355578, "456");
+const gerenteEstaLogado = SistemaAutenticacao.login(gerente, "123");
+const diretorEstaLogado = SistemaAutenticacao.login(diretor, "123456");
 
 
-console.log(contaPoupanca);
-console.log(contaCorrenteTais)
+const clienteEstaLogado = SistemaAutenticacao.login(cliente, "456");
 
+console.log(gerenteEstaLogado,diretorEstaLogado, clienteEstaLogado);
