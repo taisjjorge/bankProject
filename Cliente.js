@@ -1,10 +1,5 @@
-export class Cliente {
-    nome;   
-    _cpf;
-
-
-// #### acessores(set, get)
-    get cpf() {
+export class Cliente{
+    get cpf(){
         return this._cpf;
     }
 
@@ -13,5 +8,4 @@ export class Cliente {
         this._cpf = cpf;
     }
 }
-
     

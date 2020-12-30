@@ -1,19 +1,17 @@
-import { Cliente } from './Cliente.js';
-import { ContaCorrente } from './ContaCorrente.js';
+import {Cliente} from "./Cliente.js";
+import {ContaCorrente} from "./ContaCorrente.js";
+import { ContaPoupanca } from "./ContaPoupanca.js";
 
-// Cliente() -> chama o constructor da classe Cliente em Cliente.js
-const cliente1 = new Cliente("Tais", 11122233345); 
-const cliente2 = new Cliente("Alice", 88822233345);
+const cliente1 = new Cliente("Tais", 11122233345);
 
-const contaCorrenteTais = new ContaCorrente(1001, cliente1);
-
+const contaCorrenteTais = new ContaCorrente( cliente1, 1001);
 contaCorrenteTais.depositar(500);
-const conta2 = new ContaCorrente(102, cliente2);
+contaCorrenteTais.sacar(100);
+
+const contaPoupanca = new ContaPoupanca(50, cliente1, 1001);
+contaPoupanca.sacar(10);
 
 
-let valor = 200;
-contaCorrenteTais.transferir(valor, conta2);
-
-console.log(ContaCorrente.numeroContas);
-
+console.log(contaPoupanca);
+console.log(contaCorrenteTais)
 
